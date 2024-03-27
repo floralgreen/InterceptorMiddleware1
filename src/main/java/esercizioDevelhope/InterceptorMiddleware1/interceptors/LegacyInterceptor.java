@@ -13,6 +13,7 @@ public class LegacyInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String endpoint = request.getPathInfo();
         if (endpoint.contains("/legacy")){
+            response.setStatus(HttpServletResponse.SC_GONE);
             return false;
         }
         return true;
